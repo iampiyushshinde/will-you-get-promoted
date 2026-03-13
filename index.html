@@ -15,7 +15,7 @@
   --accent: #e8ff00;
   --orange: #ff4d00;
   --text: #f0f0f0;
-  --muted: #555;
+  --muted: #888;
   --dim: #2a2a2a;
   --green: #00ff88;
   --red: #ff3355;
@@ -23,14 +23,15 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; min-height: 100vh; }
+html { height: 100%; }
+body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
 
 /* ── HERO ── */
 #heroSection { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 48px 24px; text-align: center; }
-.hero-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 5px; color: var(--muted); text-transform: uppercase; margin-bottom: 20px; }
+.hero-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 5px; color: #888; text-transform: uppercase; margin-bottom: 20px; }
 .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 14vw, 110px); line-height: 0.88; letter-spacing: 2px; margin-bottom: 24px; }
 .hero h1 span { color: var(--accent); }
-.hero-sub { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted); line-height: 1.9; max-width: 400px; margin: 0 auto 32px; }
+.hero-sub { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #999; line-height: 1.9; max-width: 400px; margin: 0 auto 32px; }
 .eq-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
 .eq-chip { background: var(--surface); border: 1px solid var(--border); padding: 8px 18px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
 .eq-chip .a { color: var(--orange); } .eq-chip .b { color: var(--accent); } .eq-chip .c { color: var(--blue); }
@@ -38,7 +39,8 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
 .start-btn:hover { background: #fff; }
 
 /* ── APP ── */
-#appSection { display: none; max-width: 980px; margin: 0 auto; padding: 48px 24px 80px; }
+#appSection { display: none; width: 100%; background: var(--bg); min-height: 100vh; }
+.app-inner { max-width: 980px; margin: 0 auto; padding: 48px 24px 80px; }
 .app-layout { display: grid; grid-template-columns: 1fr 320px; gap: 32px; align-items: start; }
 @media (max-width: 780px) { .app-layout { grid-template-columns: 1fr; } }
 
@@ -54,7 +56,7 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
 
 .q-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 10px; }
 .q-text { font-size: clamp(16px, 2.5vw, 21px); line-height: 1.45; margin-bottom: 8px; }
-.q-hint { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 24px; }
+.q-hint { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #888; margin-bottom: 24px; }
 
 .options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
 .option { padding: 14px 18px; background: var(--surface); border: 1px solid var(--border); cursor: pointer; transition: all 0.15s; display: flex; gap: 14px; position: relative; overflow: hidden; }
@@ -65,7 +67,7 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
 .option.selected::before { width:100%; }
 .option-letter { font-family:'Bebas Neue',sans-serif; font-size:16px; color:var(--muted); min-width:18px; margin-top:2px; flex-shrink:0; transition:color 0.15s; }
 .option.selected .option-letter { color: var(--oc, var(--accent)); }
-.option-text { font-size:13px; line-height:1.55; color:#aaa; transition:color 0.15s; }
+.option-text { font-size:13px; line-height:1.55; color:#bbb; transition:color 0.15s; }
 .option.selected .option-text { color: var(--text); }
 
 .stage-options { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; }
@@ -74,7 +76,7 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
 .stage-opt.selected { border-color:var(--accent); background:var(--surface2); }
 .stage-title { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:2px; margin-bottom:4px; transition:color 0.15s; }
 .stage-opt.selected .stage-title { color:var(--accent); }
-.stage-sub { font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--muted); line-height:1.6; }
+.stage-sub { font-family:'IBM Plex Mono',monospace; font-size:9px; color:#888; line-height:1.6; }
 
 .nav-row { display:flex; justify-content:space-between; }
 .nav-btn { padding:10px 24px; border:1px solid var(--border); background:transparent; color:var(--muted); font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:2px; cursor:pointer; transition:all 0.15s; text-transform:uppercase; }
@@ -86,17 +88,17 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
 .score-panel { position:sticky; top:32px; }
 .score-panel-inner { background:var(--surface); border:1px solid var(--border); padding:28px 24px; position:relative; overflow:hidden; }
 .score-panel-inner::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--lc,var(--dim)); transition:background 0.5s; }
-.live-tag { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:4px; color:var(--muted); text-transform:uppercase; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+.live-tag { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:4px; color:#888; text-transform:uppercase; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
 .live-dot { width:6px; height:6px; border-radius:50%; background:var(--lc,var(--dim)); animation:pulse 1.5s infinite; transition:background 0.5s; }
 @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
 .big-score { font-family:'Bebas Neue',sans-serif; font-size:80px; line-height:1; letter-spacing:2px; transition:color 0.5s; margin-bottom:4px; }
 .score-verdict { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase; transition:color 0.5s; margin-bottom:20px; }
 .mini-bars { display:flex; flex-direction:column; gap:10px; margin-bottom:20px; }
-.mini-bar-label { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--muted); text-transform:uppercase; display:flex; justify-content:space-between; margin-bottom:4px; }
+.mini-bar-label { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; color:#888; text-transform:uppercase; display:flex; justify-content:space-between; margin-bottom:4px; }
 .mini-bar-label span { color:var(--text); }
 .mini-bar-bg { height:3px; background:var(--dim); border-radius:2px; overflow:hidden; }
 .mini-bar-fill { height:100%; border-radius:2px; transition:width 0.5s ease; }
-.score-insight { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--muted); line-height:1.7; border-top:1px solid var(--border); padding-top:16px; font-style:italic; min-height:48px; }
+.score-insight { font-family:'IBM Plex Mono',monospace; font-size:10px; color:#888; line-height:1.7; border-top:1px solid var(--border); padding-top:16px; font-style:italic; min-height:48px; }
 
 /* ── RESULT ── */
 #resultSection { display:none; max-width:880px; margin:0 auto; padding:60px 24px 80px; animation:fadeUp 0.4s ease forwards; }
@@ -104,16 +106,16 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
 .result-hero { text-align:center; margin-bottom:56px; padding-bottom:48px; border-bottom:1px solid var(--border); }
 .result-tag { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:5px; color:var(--muted); text-transform:uppercase; margin-bottom:16px; }
 .result-headline { font-family:'Bebas Neue',sans-serif; font-size:clamp(56px,10vw,96px); line-height:1; letter-spacing:2px; margin-bottom:12px; }
-.result-subline { font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); line-height:1.9; max-width:520px; margin:0 auto; }
+.result-subline { font-family:'IBM Plex Mono',monospace; font-size:12px; color:#999; line-height:1.9; max-width:520px; margin:0 auto; }
 
 /* big 3 scores */
 .big-scores { display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px; margin-bottom:2px; }
 @media(max-width:560px){ .big-scores{grid-template-columns:1fr;} }
 .big-score-card { background:var(--surface); padding:28px 24px; text-align:center; position:relative; overflow:hidden; }
 .big-score-card::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; background:var(--cc,var(--dim)); }
-.bsc-label { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+.bsc-label { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:#888; margin-bottom:10px; }
 .bsc-value { font-family:'Bebas Neue',sans-serif; font-size:56px; line-height:1; letter-spacing:1px; margin-bottom:6px; }
-.bsc-sub { font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--muted); line-height:1.5; }
+.bsc-sub { font-family:'IBM Plex Mono',monospace; font-size:9px; color:#888; line-height:1.5; }
 .bsc-bar { height:2px; background:var(--dim); margin-top:14px; border-radius:1px; overflow:hidden; }
 .bsc-bar-fill { height:100%; border-radius:1px; transition:width 1s ease; }
 
@@ -124,7 +126,7 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
 .var-card::before { content:''; position:absolute; left:0;top:0;bottom:0; width:3px; background:var(--vc,var(--dim)); }
 .var-left { }
 .var-name { font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase; margin-bottom:6px; }
-.var-answer { font-size:12px; color:#aaa; line-height:1.5; max-width:260px; }
+.var-answer { font-size:12px; color:#bbb; line-height:1.5; max-width:260px; }
 .var-score { font-family:'Bebas Neue',sans-serif; font-size:40px; line-height:1; min-width:60px; text-align:right; flex-shrink:0; }
 
 /* binding constraint */
@@ -143,8 +145,14 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
 
 .restart-btn { display:block; width:100%; padding:14px; background:transparent; border:1px solid var(--border); color:var(--muted); font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:3px; text-transform:uppercase; cursor:pointer; transition:all 0.15s; }
 .restart-btn:hover { border-color:var(--dim); color:var(--text); }
-.footer-note { text-align:center; margin-top:48px; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--muted); line-height:2; }
+.footer-note { text-align:center; margin-top:48px; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#888; line-height:2; }
 .footer-note a { color:var(--accent); text-decoration:none; }
+
+.manager-callout { background:#0a0800; border:1px solid #2a2000; border-left:3px solid var(--accent); padding:18px 22px; margin-bottom:2px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#bbb; line-height:1.8; display:flex; gap:14px; align-items:flex-start; }
+.manager-callout-icon { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--accent); flex-shrink:0; margin-top:-1px; }
+.constraint-text { font-size:13px; line-height:1.9; color:#bbb; white-space:pre-line; }
+.constraint-action-label { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:4px; color:var(--accent); text-transform:uppercase; margin-top:20px; margin-bottom:6px; }
+.constraint-action { font-size:13px; line-height:1.8; color:var(--text); border-left:2px solid var(--accent); padding-left:14px; }
 </style>
 </head>
 <body>
@@ -165,6 +173,7 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
 
 <!-- APP -->
 <div id="appSection">
+  <div class="app-inner">
   <div class="app-layout">
     <div class="questions-panel">
       <div class="progress-row">
@@ -310,6 +319,7 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
   </div>
 </div>
 
+  </div>
 <!-- RESULT -->
 <div id="resultSection">
 
@@ -342,6 +352,12 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
   </div>
 
   <!-- Variable breakdown -->
+  <!-- Manager callout -->
+  <div class="manager-callout">
+    <span class="manager-callout-icon">!</span>
+    YOUR MANAGER IS NOT YOUR SPONSOR. THEY ARE DOING THEIR JOB. A SPONSOR IS SOMEONE WHO CHOOSES TO SPEND THEIR OWN CREDIBILITY ON YOU WITHOUT BEING ASKED. THOSE ARE COMPLETELY DIFFERENT THINGS.
+  </div>
+
   <div class="var-grid" id="varGrid"></div>
 
   <!-- Binding constraint -->
@@ -349,6 +365,8 @@ body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', 
     <div class="constraint-tag">Binding Constraint</div>
     <div class="constraint-headline" id="cHeadline">—</div>
     <div class="constraint-text" id="cText">—</div>
+    <div class="constraint-action-label">THIS WEEK</div>
+    <div class="constraint-action" id="cAction">—</div>
   </div>
 
   <!-- Recommendation -->
@@ -380,18 +398,38 @@ const VARS = [
 ];
 
 const MSGS = {
-  pc: { h:'Performance is low.', t:'No sponsor can save you here. The work has to speak first. Focus on one visible, memorable delivery before the next cycle. Make the org feel it.' },
-  rc: { h:'Relationship capital is thin.', t:'Knowing people is not the same as people knowing your work. Start building genuine advocates. Who would go out on a limb for you right now? Build toward that.' },
-  e:  { h:'Sponsor hasn\'t seen the work.', t:'Your sponsor can\'t vouch for what they haven\'t seen. Get your work directly in front of them. Create the opportunity. Don\'t wait for it to happen.' },
-  p:  { h:'Sponsor isn\'t in the room.', t:'A warm relationship with the wrong person is wasted investment. Find out who is actually in the decision room and start building toward that person.' },
-  l:  { h:'Affinity isn\'t strong enough.', t:'Relationships untested at high stakes are just acquaintances. The affinity needs to be real enough that your sponsor would spend their own credibility. Build that depth.' },
+  pc: {
+    h: 'The work is not landing.',
+    t: 'Stop counting how hard you worked. No one cares about that.\n\nThe only question is did the org feel it? Did something change because you were there?\n\nIf you cannot point to one thing in the last six months that people remember, that is your entire problem right now. Not your sponsor. Not the system. The work.',
+    action: 'Pick one thing you can ship in the next 30 days that the org will actually feel. Not a project. One output. Write it down today. That is your only job right now.'
+  },
+  rc: {
+    h: 'Nobody is carrying your name.',
+    t: 'You have been putting your head down and hoping someone notices. They have not.\n\nGood work does not travel on its own. People carry it. And right now you do not have enough people carrying yours.',
+    action: 'This week have one real conversation with someone senior. Not a catch up. Not a coffee chat. Show them something you are working on and let them react. Do that every week until you can name three people who actually know what you do.'
+  },
+  e: {
+    h: 'Your sponsor cannot see you.',
+    t: 'Your sponsor cannot vouch for what they have not seen.\n\nRight now if your name came up they would say something vague and move on. That is not advocacy. That is noise.',
+    action: 'This week find one opportunity to put your actual work in front of your sponsor directly. Not a summary. Not a forwarded email. Them seeing you do the thing. Create that moment if you have to.'
+  },
+  p: {
+    h: 'You are investing in the wrong person.',
+    t: 'And nine times out of ten that person is your manager.\n\nYour manager is not your sponsor. Your manager is your manager. They give you feedback, run your reviews, tell you what to improve. That is their job. That is not sponsorship.\n\nA sponsor is someone who walks into a room you are not in and spends their own credibility on your name. Your manager doing your review is not that. That is just the process.',
+    action: 'This week find out who is actually in the room where your promotion gets decided. You probably already know. Write that person name down. Now ask yourself honestly how strong your relationship with them is. That gap is your real work.'
+  },
+  l: {
+    h: 'The affinity is not strong enough.',
+    t: 'Be honest about who you are counting on here.\n\nIf it is your manager that relationship is complicated by design. They have competing incentives. They are balancing the whole team. Even if they like you, liking you and going to bat for you are very different things.\n\nA real sponsor chooses to spend their credibility on you. Nobody asked them to. They just do it because they believe in you enough to take that risk.',
+    action: 'Think about the last time someone advocated for you when they did not have to. Not your manager doing your review. Someone choosing to put their name on the line for you. If nothing comes to mind that is the gap. Start building that depth with one person this week.'
+  },
 };
 
 const RECOS = {
-  strong:  'Your equation is working. Stay visible. Keep the sponsor warm. Make sure your next delivery is as sharp as your last. The game is yours to lose.',
-  mid:     'You are being considered. The gap is in Game 2. Your sponsor needs to be stronger — check E, P, L. One of those three is holding everything back. Fix the weakest one before this cycle ends.',
-  atrisk:  'Two things to audit immediately. First — has your Q cleared the bar? Second — do you actually have a sponsor with real power and real exposure to your work? Start there.',
-  notyet:  'The equation has a gap somewhere fundamental. Don\'t wonder why someone else got it. Your broken variable is identified above. Fix that one thing. Everything else is noise until you do.',
+  strong:  'Your equation is working. Performance is solid, your sponsor is real, and the affinity is there. Stay visible. Keep the sponsor warm. Make sure your next delivery is as sharp as your last. The game is yours to lose.',
+  mid:     'You are being considered. But something in Game 2 is holding you back. Your sponsor needs to be stronger. Check E, P, L. One of those three is the problem. Fix that one thing before this cycle ends.',
+  atrisk:  'Two things to audit right now. First has your Q actually cleared the bar? Second do you have a sponsor with real power and real exposure to your work? Not your manager. An actual sponsor. Start there.',
+  notyet:  'The equation has a gap somewhere fundamental. Do not wonder why someone else got it. Your broken variable is above. Fix that one thing. Everything else is noise until you do.',
 };
 
 function calc(s) {
@@ -512,7 +550,8 @@ function showResult(){
     if((S[broken.key]??0)<0.6){
       document.getElementById('constraintBox').style.display='block';
       set('cHeadline',MSGS[broken.key].h);
-      set('cText',MSGS[broken.key].t);
+      document.getElementById('cText').textContent = MSGS[broken.key].t;
+      document.getElementById('cAction').textContent = MSGS[broken.key].action;
     }
   }
 
@@ -524,7 +563,7 @@ function restart(){
   document.querySelectorAll('.stage-opt,.option').forEach(el=>el.classList.remove('selected'));
   for(let i=1;i<=5;i++){ const b=document.getElementById(`next${i}`); if(b) b.disabled=true; }
   document.querySelectorAll('.q-card').forEach((c,i)=>{ c.classList.remove('active'); if(i===0) c.classList.add('active'); });
-  set('bigScore','—','color','var(--dim)'); set('scoreVerdict','Answer to begin','color','var(--muted)');
+  set('bigScore','—','color','var(--dim)'); set('scoreVerdict','Answer to begin','color','#888');
   set('scoreInsight','Your score updates with every answer.');
   ['qBar','eplBar','aBar'].forEach(id=>{ document.getElementById(id).style.width='0%'; });
   ['qLbl','eplLbl','aLbl'].forEach(id=>set(id,'—'));
